@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/Users/alfonso/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/21.0.3/support-annotations-21.0.3.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="4b74cefe1f0c1b819e7260c8627a14674e37fd35">
+        <dex dex="/Users/alfonso/AndroidStudioProjects/Petmate/app/build/intermediates/pre-dexed/debug/support-annotations-21.0.3-50226a6e5a73136a18a2f23ce0e9e900ba128b63.jar" />
+    </item>
+    <item
+        jar="/Users/alfonso/AndroidStudioProjects/Petmate/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="81d42bf983a8741f4888a6e333e454e4a5e0eeb7">
+        <dex dex="/Users/alfonso/AndroidStudioProjects/Petmate/app/build/intermediates/pre-dexed/debug/classes-a12de82e52c910d82a7ded203dace073d0eac68e.jar" />
+    </item>
+    <item
+        jar="/Users/alfonso/Documents/ReposLMAD/petmateAndroid/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.3/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="2c91c949a45a21cdecf26e03951e46c7beec9ad8">
+        <dex dex="/Users/alfonso/Documents/ReposLMAD/petmateAndroid/app/build/intermediates/pre-dexed/debug/classes-f9ae4216ae2d490a75d53e3bd6156c183b43de8e.jar" />
+    </item>
+    <item
+        jar="/Users/alfonso/AndroidStudioProjects/Petmate/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.3/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="2c91c949a45a21cdecf26e03951e46c7beec9ad8">
+        <dex dex="/Users/alfonso/AndroidStudioProjects/Petmate/app/build/intermediates/pre-dexed/debug/classes-d50d7bce692c0e46898e47fcb05790fed159db60.jar" />
+    </item>
+    <item
+        jar="/Users/alfonso/Documents/ReposLMAD/petmateAndroid/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="81d42bf983a8741f4888a6e333e454e4a5e0eeb7">
+        <dex dex="/Users/alfonso/Documents/ReposLMAD/petmateAndroid/app/build/intermediates/pre-dexed/debug/classes-87f0a3f87a7d288ea97d59d9545e37148bf06c99.jar" />
+    </item>
+    <item
+        jar="/Users/alfonso/Documents/ReposLMAD/petmateAndroid/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.3/libs/internal_impl-21.0.3.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="01ec05bfbafcc07646ba813000bf2ef11742dd03">
+        <dex dex="/Users/alfonso/Documents/ReposLMAD/petmateAndroid/app/build/intermediates/pre-dexed/debug/internal_impl-21.0.3-234c629f9defcace86c014a30ff193a0167a853e.jar" />
+    </item>
+    <item
+        jar="/Users/alfonso/AndroidStudioProjects/Petmate/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.3/libs/internal_impl-21.0.3.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="01ec05bfbafcc07646ba813000bf2ef11742dd03">
+        <dex dex="/Users/alfonso/AndroidStudioProjects/Petmate/app/build/intermediates/pre-dexed/debug/internal_impl-21.0.3-a7a9380f64a5ea80f0ca04c5b30142bc13fa14d6.jar" />
+    </item>
+
+</items>
