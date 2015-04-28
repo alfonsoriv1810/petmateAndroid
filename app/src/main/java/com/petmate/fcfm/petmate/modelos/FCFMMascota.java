@@ -1,4 +1,4 @@
-package com.petmate.fcfm.petmate;
+package com.petmate.fcfm.petmate.modelos;
 
 import java.net.URL;
 
