@@ -90,8 +90,8 @@
 
                 </LinearLayout>
 
-            <fragment
-                android:name="com.petmate.fcfm.petmate.fragmentos.FCFMPerfilUsuario"
+                <fragment
+                    android:name="com.petmate.fcfm.petmate.fragmentos.FCFMPerfilUsuario"
                     android:id="@+id/tab4"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -99,14 +99,14 @@
                     android:paddingLeft="@dimen/activity_horizontal_margin"
                     android:paddingRight="@dimen/activity_horizontal_margin"/>
 
-                <LinearLayout
+                <fragment
+                    android:name="com.petmate.fcfm.petmate.fragmentos.FCFMConfiguracion"
                     android:id="@+id/tab5"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation = "vertical"
                     android:paddingLeft="@dimen/activity_horizontal_margin"
-                    android:paddingRight="@dimen/activity_horizontal_margin">
-                </LinearLayout>
+                    android:paddingRight="@dimen/activity_horizontal_margin"/>
 
             </FrameLayout>
 

@@ -29,6 +29,7 @@
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:id="@+id/imagenSexoMascotaListado"
+        android:scaleType="fitCenter"
         android:src="@drawable/icn_sexo_masculino_mascota"
         android:layout_margin="5dp" />
 
