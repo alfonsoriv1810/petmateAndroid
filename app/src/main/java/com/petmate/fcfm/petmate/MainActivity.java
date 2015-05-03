@@ -69,7 +69,7 @@ public class MainActivity extends ActionBarActivity {
 
         addNewTab(R.id.tab1, getResources().getDrawable(R.drawable.btn_home));
         addNewTab(R.id.tab2, getResources().getDrawable(R.drawable.btn_fav));
-        addNewTab(R.id.tab3, getResources().getDrawable(R.drawable.btn_search));
+        addNewTab(R.id.tab3, getResources().getDrawable(R.drawable.btn_mascota));
         addNewTab(R.id.tab4, getResources().getDrawable(R.drawable.btn_user));
         addNewTab(R.id.tab5, getResources().getDrawable(R.drawable.btn_settings));
 

@@ -10,7 +10,7 @@
         android:gravity="center"
         android:text="Configuración"
         android:layout_margin="5dp"
-        android:background="#fff2af13"
+        android:background="@drawable/btn_con_borde"
         android:textColor="#ffffffff" />
     <Button
         android:layout_width="match_parent"
@@ -20,7 +20,7 @@
         android:text="Acerca de."
         android:layout_margin="5dp"
         android:textColor="#ffffffff"
-        android:background="#fff2af13" />
+        android:background="@drawable/btn_con_borde" />
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"

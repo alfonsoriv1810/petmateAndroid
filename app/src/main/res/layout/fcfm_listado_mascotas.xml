@@ -9,6 +9,8 @@
         android:layout_height="wrap_content"
         android:paddingLeft="@dimen/activity_horizontal_margin"
         android:paddingRight="@dimen/activity_horizontal_margin"
+        android:background="@drawable/btn_con_borde"
+        android:textColor="@color/abc_primary_text_material_dark"
         android:text="Buscar"/>
 
         <ListView
