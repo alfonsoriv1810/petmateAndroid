@@ -1,19 +1,14 @@
 package com.petmate.fcfm.petmate.asynckTasks;
 
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
-import android.widget.ListAdapter;
-import android.widget.SimpleAdapter;
-
 import com.loopj.android.http.JsonHttpResponseHandler;
 
 import com.loopj.android.http.SyncHttpClient;
 import com.petmate.fcfm.petmate.MainActivity;
 import com.petmate.fcfm.petmate.R;
 import com.petmate.fcfm.petmate.constantes.FCFMSingleton;
-import com.petmate.fcfm.petmate.fragmentos.FCFMListadoFragment;
 import com.petmate.fcfm.petmate.modelos.FCFMMascota;
 
 import org.apache.http.Header;
@@ -22,8 +17,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 /**
  * Created by alfonso on 04/05/15.

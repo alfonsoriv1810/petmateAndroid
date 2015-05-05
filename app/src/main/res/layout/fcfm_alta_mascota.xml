@@ -25,6 +25,35 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/editTextNombreMascotaNueva"
-        android:hint=""/>
+        android:hint="@string/placeHolderNombreMascotaNueva"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/editTextColorMascotaNueva"
+        android:hint="@string/placeHolderNombreColorMascotaNueva"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp" />
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinnerSexoMascotaNueva"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:contentDescription="@string/placeHolderSexoMascotaNueva">
+    </Spinner>
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinnerRazaMascotaNueva"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:contentDescription="@string/placeHolderSexoMascotaNueva">
+
+    </Spinner>
 
 </LinearLayout>

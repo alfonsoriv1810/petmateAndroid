@@ -1,9 +1,10 @@
 <resources>
     <string name="app_name">Idiomas</string>
 
-    <string name="action_settings">Settings</string>
-
     <string name="placeHolderNombreMascotaNueva">Name of the pet</string>
+    <string name="placeHolderNombreColorMascotaNueva">Color of the pet</string>
+    <string name="placeHolderSexoMascotaNueva">Choose the gender of the pet</string>
+    <string name="placeHolderRazaNuevaMascota">Choose the race of your pet</string>
 
     <string name="tituloCargando">Loading...</string>
 
