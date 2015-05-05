@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Petmate</string>
-
-    <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+
+    <string name="placeHolderNombreMascotaNueva">Nombre de la mascota</string>
+    <string name="tituloCargando">Cargando...</string>
 </resources>

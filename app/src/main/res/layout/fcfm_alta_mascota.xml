@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:text="Toca la imagen para tomar la foto"
+    android:layout_marginTop="20dp"
+    android:textSize="20dp" />
+
+    <ImageView
+        android:id="@+id/imageViewCamara"
+        android:layout_width="match_parent"
+        android:layout_height="330dp"
+        android:contentDescription="Foto de mascota"
+        android:scaleType="fitCenter"
+        android:src="@drawable/icn_btn_camara"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/editTextNombreMascotaNueva"
+        android:hint=""/>
+
+</LinearLayout>

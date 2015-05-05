@@ -6,10 +6,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.petmate.fcfm.petmate.R;
+
+import java.util.ArrayList;
 
 /**
  * Created by alfonso on 21/04/15.
@@ -17,11 +18,11 @@ import com.petmate.fcfm.petmate.R;
 
 public class FCFMListadoFragment extends Fragment {
 
-    ListView listviewMascotas;
+    public static ListView listviewMascotas;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        super.onCreateView(inflater,container,savedInstanceState);
+        super.onCreateView(inflater, container, savedInstanceState);
         View view = inflater.inflate(R.layout.fcfm_listado_mascotas, container, false);
 
         listviewMascotas= (ListView) view.findViewById(R.id.lvMascotas);
@@ -40,7 +41,13 @@ public class FCFMListadoFragment extends Fragment {
         return view;
     }
 
-    void initTablaMascotas(){
 
+
+    public static void initTablaMascotas(ArrayList<?> arregloMascotas){
+
+        /*if (arregloMascotas != null) {
+            ArrayAdapter<FCFMMascota> adapter = new ArrayAdapter<FCFMMascota>(MainActivity.getAppContext(), R.layout.fcfm_item_listado_mascotas, arregloMascotas);
+            listviewMascotas.setAdapter(adapter);
+        }*/
     }
 }

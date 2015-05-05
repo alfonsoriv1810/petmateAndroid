@@ -1,19 +1,20 @@
 package com.petmate.fcfm.petmate;
 
-import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.Typeface;
+import android.app.ProgressDialog;
 import android.graphics.drawable.Drawable;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.TabHost;
-import android.widget.TextView;
 
+import com.petmate.fcfm.petmate.asynckTasks.FCFMColeccionMascotas;
+import com.petmate.fcfm.petmate.fragmentos.FCFMListadoFragment;
+import com.petmate.fcfm.petmate.modelos.FCFMMascota;
 
-public class MainActivity extends ActionBarActivity {
+import java.util.ArrayList;
+
+public class MainActivity extends FragmentActivity {
 
     TabHost menuTab;
 
@@ -31,6 +32,7 @@ public class MainActivity extends ActionBarActivity {
             }
         });
 
+        new FCFMColeccionMascotas(this).execute();
     }
 
     public void setTabColor(TabHost tabhost) {
@@ -57,9 +59,6 @@ public class MainActivity extends ActionBarActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
 
         return super.onOptionsItemSelected(item);
     }
@@ -76,6 +75,7 @@ public class MainActivity extends ActionBarActivity {
         setTabColor(menuTab);
     }
 
+
     void addNewTab(int content, Drawable icon){
         //Esto sirve para cambiar el idioma dependiendo del texto
 
@@ -83,5 +83,14 @@ public class MainActivity extends ActionBarActivity {
         spec.setIndicator("", icon);//Titulo de la tab
         spec.setContent(content);//Contenido a mostrar (Buscar una manera de hacerlo separado y no en un solo xml)-
         menuTab.addTab(spec);
+    }
+
+    public void finishedLoadingListView(final ArrayList<FCFMMascota> arregloMascotas) {
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                FCFMListadoFragment.initTablaMascotas(arregloMascotas);
+            }
+        });
     }
 }
