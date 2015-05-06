@@ -46,8 +46,7 @@ public class FCFMColeccionMascotas extends AsyncTask<Void, Void, Void> {
                         String colorMascota = c.getString("mascota_color");
                         String razaMascota = c.getString("raza_nombre");
 
-                        FCFMMascota mascota = new FCFMMascota(idMascota,nombreMascota,razaMascota,colorMascota);
-                        arregloMascotas.add(mascota);
+
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -70,6 +69,7 @@ public class FCFMColeccionMascotas extends AsyncTask<Void, Void, Void> {
     protected void onPostExecute(Void result) {
         super.onPostExecute(result);
         // Dismiss the progress dialog
+        Log.e("","---->"+result);
         FCFMSingleton.escondeProgressDialog();
     }
 

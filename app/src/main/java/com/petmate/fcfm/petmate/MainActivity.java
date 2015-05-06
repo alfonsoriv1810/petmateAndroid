@@ -1,23 +1,34 @@
 package com.petmate.fcfm.petmate;
 
 import android.app.ProgressDialog;
+import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 import android.widget.TabHost;
 
+import com.nostra13.universalimageloader.cache.memory.impl.WeakMemoryCache;
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.petmate.fcfm.petmate.asynckTasks.FCFMColeccionMascotas;
+import com.petmate.fcfm.petmate.constantes.FCFMSingleton;
 import com.petmate.fcfm.petmate.fragmentos.FCFMListadoFragment;
 import com.petmate.fcfm.petmate.modelos.FCFMMascota;
+import com.petmate.fcfm.petmate.utilidades.DescargaServicio;
+
+import org.json.JSONArray;
+import org.json.JSONException;
 
 import java.util.ArrayList;
 
-public class MainActivity extends FragmentActivity {
-
+public class MainActivity extends FragmentActivity   {
+    private ImageLoaderConfiguration _config;
     TabHost menuTab;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,13 +39,18 @@ public class MainActivity extends FragmentActivity {
             @Override
             public void onTabChanged(String tabId) {
                 setTabColor(menuTab);
-
             }
         });
+        DisplayImageOptions options = new DisplayImageOptions.Builder().bitmapConfig(Bitmap.Config.RGB_565)
+                .resetViewBeforeLoading(true).showImageOnLoading(R.drawable.icn_btn_camara).cacheOnDisc(true).cacheInMemory(true).delayBeforeLoading(0).build();
+        _config = new ImageLoaderConfiguration.Builder(this).memoryCache(new WeakMemoryCache())
+                .denyCacheImageMultipleSizesInMemory()
+                .threadPoolSize(5)
+                .defaultDisplayImageOptions(options)
+                .build();
+        ImageLoader.getInstance().init(_config);
 
-        new FCFMColeccionMascotas(this).execute();
     }
-
     public void setTabColor(TabHost tabhost) {
         for(int i=0;i<tabhost.getTabWidget().getChildCount();i++)
         {
@@ -93,4 +109,5 @@ public class MainActivity extends FragmentActivity {
             }
         });
     }
+
 }

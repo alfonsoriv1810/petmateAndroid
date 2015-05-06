@@ -1,5 +1,7 @@
 package com.petmate.fcfm.petmate.modelos;
 
+import org.json.JSONObject;
+
 import java.net.URL;
 
 /**
@@ -7,27 +9,29 @@ import java.net.URL;
  */
 public class FCFMMascota {
 
-    int idMascota;
-    String nombreMascota;
-    String razaMascota;
-    String colorMascota;
-    URL urlImagenMascota;
-    Boolean sexoMascota;
+   private int idMascota;
+   private String nombreMascota;
+   private String razaMascota;
+   private String colorMascota;
+   private String urlImagenMascota;
+   private Boolean sexoMascota;
 
     public FCFMMascota() {
 
     }
 
-    public FCFMMascota (String idMascota, String nombreMascota, String razaMascota, String colorMascota) {
-        this.idMascota = Integer.parseInt(idMascota);
-        this.nombreMascota = nombreMascota;
-        this.razaMascota = razaMascota;
-        this.colorMascota = colorMascota;
+
+    public FCFMMascota(JSONObject object){
+        setIdMascota(Integer.parseInt(object.optString("mascota_id","")));
+        setNombreMascota(object.optString("mascota_nombre",""));
+        setRazaMascota(object.optString("raza_nombre",""));
+        setColorMascota(object.optString("mascota_color",""));
+        setUrlImagenMascota(object.optString("mascota_foto",""));
     }
 
-    public URL getUrlImagenMascota() {return urlImagenMascota;}
+    public String getUrlImagenMascota() {return urlImagenMascota;}
 
-    public void setUrlImagenMascota(URL urlImagenMascota) {this.urlImagenMascota = urlImagenMascota;}
+    public void setUrlImagenMascota(String urlImagenMascota) {this.urlImagenMascota = urlImagenMascota;}
 
     public String getNombreMascota() {return nombreMascota;}
 
@@ -54,4 +58,13 @@ public class FCFMMascota {
     public void setColorMascota(String colorMascota) {this.colorMascota = colorMascota;}
 
     public Boolean isSexoMascota() {return sexoMascota;}
+
+    public int getIdMascota() {
+        return idMascota;
+    }
+
+    public void setIdMascota(int idMascota) {
+        this.idMascota = idMascota;
+    }
+
 }

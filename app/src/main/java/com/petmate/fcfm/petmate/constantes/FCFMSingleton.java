@@ -7,7 +7,7 @@ import android.content.Context;
  * Created by alfonso on 04/05/15.
  */
 public abstract class FCFMSingleton {
-    public static final String baseURL = "http://192.168.1.81";
+    public static final String baseURL = "http://192.168.15.159";
     private static ProgressDialog pDialog;
 
     public static void muestraPrograsDialogConTexto (String textoParaDialog, Context context) {
