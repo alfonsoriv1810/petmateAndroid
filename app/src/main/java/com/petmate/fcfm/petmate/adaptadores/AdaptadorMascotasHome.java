@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.petmate.fcfm.petmate.R;
+import com.petmate.fcfm.petmate.constantes.FCFMSingleton;
 import com.petmate.fcfm.petmate.modelos.FCFMMascota;
 
 import java.util.LinkedList;
@@ -48,9 +49,26 @@ public class AdaptadorMascotasHome extends BaseAdapter {
             convertView = View.inflate(parent.getContext(), R.layout.fcfm_item_listado_mascotas,null);
         }
         ImageView imagenMascotaListado = (ImageView) convertView.findViewById(R.id.imagenMascotaListado);
+        ImageView imagenSexoMascota = (ImageView) convertView.findViewById(R.id.imagenSexoMascotaListado);
         TextView textViewNombreMascotaListado =(TextView)convertView.findViewById(R.id.textViewNombreMascotaListado);
-        ImageLoader.getInstance().displayImage(_lista.get(position).getUrlImagenMascota(),imagenMascotaListado);
+        TextView textViewSexoMascota =(TextView)convertView.findViewById(R.id.textViewSexoListado);
+        TextView textViewRazaMascota =(TextView)convertView.findViewById(R.id.textViewRazaListado);
+
+        ImageLoader.getInstance().displayImage(FCFMSingleton.baseURL + _lista.get(position).getUrlImagenMascota(),imagenMascotaListado);
         textViewNombreMascotaListado.setText(_lista.get(position).getNombreMascota());
+        textViewRazaMascota.setText(_lista.get(position).getRazaMascota());
+
+        Boolean sexoMascota = _lista.get(position).getSexoMascota();
+
+        if (sexoMascota == true){
+            textViewSexoMascota.setText("Masculino");
+            imagenSexoMascota.setImageResource(R.drawable.icn_sexo_masculino_mascota);
+        } else {
+            textViewSexoMascota.setText("Femenino");
+            imagenSexoMascota.setImageResource(R.drawable.icn_sexo_femenino_mascota);
+        }
+
+        convertView.setTag(_lista.get(position));
         return convertView;
     }
 }

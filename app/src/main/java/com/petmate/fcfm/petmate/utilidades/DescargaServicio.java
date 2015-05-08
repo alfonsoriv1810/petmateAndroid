@@ -9,8 +9,6 @@ import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
-import org.json.JSONArray;
-import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
@@ -20,6 +18,7 @@ public class DescargaServicio extends AsyncTask<String, Void, String>{
 	public DescargaServicio (onDowloadList dList){
 		this.dList = dList;
 	}
+
 	@Override
 	protected String doInBackground(String... params) {
 		InputStream is = null;

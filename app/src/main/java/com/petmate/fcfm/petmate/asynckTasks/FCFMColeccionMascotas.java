@@ -32,7 +32,7 @@ public class FCFMColeccionMascotas extends AsyncTask<Void, Void, Void> {
     }
 
     public static void descargaMascotas(){
-        clientGetListadoMascotas.get(FCFMSingleton.baseURL + "/petmateServicios/get_mascotas.php", null, new JsonHttpResponseHandler() {
+        clientGetListadoMascotas.get(FCFMSingleton.baseURL + "get_mascotas.php", null, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
                 // If the response is JSONObject instead of expected JSONArray

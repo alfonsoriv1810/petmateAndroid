@@ -6,7 +6,7 @@
     <ImageView
         android:layout_width="100dp"
         android:layout_height="match_parent"
-        android:id="@+id/imagenMascotaListado"
+        android:id="@+id/imagenMascotaListadoReducido"
         android:scaleType="fitCenter"
         android:layout_margin="10dp" />
 
@@ -17,12 +17,12 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/textViewNombreMascotaListado"
+            android:id="@+id/textViewNombreMascotaListadoReducido"
             android:text="Nombre Mascota"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/textViewNombreUsuarioListado"
+            android:id="@+id/textViewNombreRazaListadoReducido"
             android:text="Nombre usuario mascota"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp" />
@@ -34,13 +34,13 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:id="@+id/textViewSexoListado"
+                android:id="@+id/textViewSexoListadoReducido"
                 android:text="Mascota sexo"
                 android:gravity="center_vertical" />
             <ImageView
                 android:layout_width="25dp"
                 android:layout_height="25dp"
-                android:id="@+id/imagenSexoMascotaListado"
+                android:id="@+id/imagenSexoMascotaListadoReducido"
                 android:scaleType="fitCenter"
                 android:src="@drawable/icn_sexo_masculino_mascota"/>
         </LinearLayout>

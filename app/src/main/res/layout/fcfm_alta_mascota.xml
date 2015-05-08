@@ -1,59 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-<TextView
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:gravity="center"
-    android:text="Toca la imagen para tomar la foto"
-    android:layout_marginTop="20dp"
-    android:textSize="20dp" />
-
-    <ImageView
-        android:id="@+id/imageViewCamara"
+    android:layout_height="match_parent">
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="330dp"
-        android:contentDescription="Foto de mascota"
-        android:scaleType="fitCenter"
-        android:src="@drawable/icn_btn_camara"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp" />
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/editTextNombreMascotaNueva"
-        android:hint="@string/placeHolderNombreMascotaNueva"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="@string/tituloNuevaMascota"
+            android:textSize="25dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="20dp" />
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/editTextColorMascotaNueva"
-        android:hint="@string/placeHolderNombreColorMascotaNueva"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp" />
+        <EditText
+            android:id="@+id/editTextNombreMascotaNueva"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:hint="@string/placeHolderNombreMascotaNueva"
+            android:layout_marginBottom="10dp" />
 
-    <Spinner
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/spinnerSexoMascotaNueva"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
-        android:contentDescription="@string/placeHolderSexoMascotaNueva">
-    </Spinner>
+        <EditText
+            android:id="@+id/editTextColorMascotaNueva"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:hint="@string/placeHolderNombreColorMascotaNueva"
+            android:layout_marginBottom="10dp" />
 
-    <Spinner
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/spinnerRazaMascotaNueva"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
-        android:contentDescription="@string/placeHolderSexoMascotaNueva">
+        <Spinner
+            android:id="@+id/spinnerSexoMascotaNueva"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:contentDescription="@string/placeHolderSexoMascotaNueva"
+            android:layout_marginBottom="10dp"></Spinner>
 
-    </Spinner>
+        <Spinner
+            android:id="@+id/spinnerRazaMascotaNueva"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:contentDescription="@string/placeHolderSexoMascotaNueva"
+            android:layout_marginTop="5dp">
 
-</LinearLayout>
+        </Spinner>
+
+    </LinearLayout>
+</ScrollView>

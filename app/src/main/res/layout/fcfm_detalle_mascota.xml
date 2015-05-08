@@ -1,7 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#FFFF">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="#fff2af13">
+
+        <TextView
+            android:id="@+id/textViewNombreAppBarra"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="5dp"
+            android:gravity="center"
+            android:text="Petmate"
+            android:textColor="#FFFF"
+            android:textSize="25dp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/icn_btn_nueva_mascota_false" />
+    </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -21,7 +47,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:id="@+id/textViewNombreUsuario"
+            android:id="@+id/textViewNombreUsuarioDetalle"
             android:text="Nombre usuario"
             android:gravity="center_vertical"
             android:layout_weight="1"
@@ -40,7 +66,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/textNombreMascota"
+        android:id="@+id/textNombreMascotaDetalle"
         android:text="Nombre mascota"
         android:gravity="center_horizontal"
         android:textSize="25dp"
@@ -48,9 +74,9 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:id="@+id/imagenMascota"
+        android:id="@+id/imagenMascotaDetalle"
         android:scaleType="fitCenter"
-        android:background="#ff000000"
+        android:background="#FFFF"
         android:layout_weight="2" />
 
     <LinearLayout
@@ -61,22 +87,25 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:id="@+id/textViewRazaMascota"
+                android:id="@+id/textViewRazaMascotaDetalle"
                 android:text="Raza mascota"
                 android:layout_weight="2"
-                android:gravity="center_vertical" />
+                android:gravity="center_vertical"
+                android:textSize="20dp" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:id="@+id/textViewSexoMascota"
+                android:id="@+id/textViewSexoMascotaDetalle"
                 android:text="Sexo mascota"
                 android:layout_weight="0"
-                android:gravity="center_vertical|left" />
+                android:gravity="center_vertical|left"
+                android:textSize="20dp" />
             <ImageView
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:scaleType="fitCenter"
-                android:src="@drawable/icn_sexo_masculino_mascota"/>
+                android:src="@drawable/icn_sexo_masculino_mascota"
+                android:id="@+id/imageViewSexoMascotaDetalle"/>
         </LinearLayout>
 
 

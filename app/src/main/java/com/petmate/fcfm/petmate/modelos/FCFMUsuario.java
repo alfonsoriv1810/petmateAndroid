@@ -2,26 +2,50 @@ package com.petmate.fcfm.petmate.modelos;
 
 import com.google.gson.Gson;
 
+import org.json.JSONObject;
+
 import java.net.URI;
 
 /**
  * Created by alfonso on 03/05/15.
  */
 public class FCFMUsuario {
+    private int idUsuario;
     private String username;
     private String password;
     private String nombre;
     private String telefono;
     private String estado;
-    private URI urlFoto;
+    private String urlFoto;
+
+    public FCFMUsuario() {
+
+    }
+
+    public FCFMUsuario(String username, String password, String nombre, String telefono, String estado, String pathFoto) {
+        this.username = username;
+        this.password = password;
+    }
+
+    public FCFMUsuario(JSONObject jsonUsuario) {
+        setIdUsuario(Integer.parseInt(jsonUsuario.optString("usuario_id", "0")));
+        setUsername(jsonUsuario.optString("usuario_correo", ""));
+        setPassword(jsonUsuario.optString("usuario_contrasena", ""));
+        setNombre(jsonUsuario.optString("usuario_nombre", ""));
+        setTelefono(jsonUsuario.optString("usuario_telefono", ""));
+        setEstado(jsonUsuario.optString("usuario_estado", ""));
+        setUrlFoto(jsonUsuario.optString("usuario_foto",""));
+    }
+
+    public int getIdUsuario() {return idUsuario;}
+
+    public void setIdUsuario(int idUsuario) {this.idUsuario = idUsuario;}
 
     public String getNombre() {
         return nombre;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
+    public void setNombre(String nombre) { this.nombre = nombre; }
 
     public String getTelefono() {
         return telefono;
@@ -35,26 +59,11 @@ public class FCFMUsuario {
         return estado;
     }
 
-    public void setEstado(String estado) {
-        this.estado = estado;
-    }
+    public void setEstado(String estado) {this.estado = estado;}
 
-    public URI getUrlFoto() {
-        return urlFoto;
-    }
+    public String getUrlFoto() {return urlFoto;}
 
-    public void setUrlFoto(URI urlFoto) {
-        this.urlFoto = urlFoto;
-    }
-
-    public FCFMUsuario() {
-
-    }
-
-    public FCFMUsuario(String username, String password) {
-        this.username = username;
-        this.password = password;
-    }
+    public void setUrlFoto(String urlFoto) {this.urlFoto = urlFoto;}
 
     public String getUsername() {
         return username;
@@ -68,21 +77,5 @@ public class FCFMUsuario {
         return password;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    /*
-        Gracias a la libreria GSON que estamos usando, podemos convertir todoo un objeto de JAVA a formato JSON.
-
-        Ejemplo:
-            Si esta clase User tiene 2 propiedades, una es username y otra es password, al momento de llamara a este metodo
-            que estamos creando "toJSON" nos va a convertir la clase a formato JSON:
-
-            Resultado en JSON = {"password":"pablo01","username":"pablo"}
-     */
-    public String toJSON() {
-        Gson gson = new Gson();
-        return gson.toJson(this);
-    }
+    public void setPassword(String password) {this.password = password;}
 }

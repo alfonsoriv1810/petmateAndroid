@@ -13,11 +13,21 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.petmate.fcfm.petmate.R;
+import com.petmate.fcfm.petmate.adaptadores.AdaptadorMascotasHome;
+import com.petmate.fcfm.petmate.adaptadores.FCFMAdaptadorMascotasDetalleUsuario;
+import com.petmate.fcfm.petmate.constantes.FCFMSingleton;
+import com.petmate.fcfm.petmate.modelos.FCFMMascota;
+import com.petmate.fcfm.petmate.utilidades.DescargaServicio;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+
+import java.util.LinkedList;
 
 /**
  * Created by alfonso on 27/04/15.
  */
-public class FCFMPerfilUsuario extends Fragment {
+public class FCFMPerfilUsuario extends Fragment implements DescargaServicio.onDowloadList {
     ListView listviewMascotas;
     Button botonEditar;
     ImageView imagenUsuario;
@@ -28,11 +38,24 @@ public class FCFMPerfilUsuario extends Fragment {
     TextView textViewEstadoUsuario;
     EditText editTextEstadoUsuario;
     Boolean estaEditando = false;
+    private interfaceTocoMascotaDetalleUsuario interfaceDetalleUsuario;
+
+    private LinkedList<FCFMMascota> _listaMascotas = new LinkedList<>();
+    private FCFMAdaptadorMascotasDetalleUsuario _listadoAd;
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        DescargaServicio descargaServicio = new DescargaServicio(this);
+        descargaServicio.execute(FCFMSingleton.baseURL + "get_mascotas.php?caso=1&id=" + FCFMSingleton.usuario.getIdUsuario());
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreateView(inflater,container,savedInstanceState);
         View view = inflater.inflate(R.layout.fcfm_usuario_perfil, container, false);
+
+        interfaceDetalleUsuario = (interfaceTocoMascotaDetalleUsuario) inflater.getContext();
 
         imagenUsuario = (ImageView) view.findViewById(R.id.imagenUsuario);
         textViewNombreUsuario = (TextView) view.findViewById(R.id.textViewNombreUsuario);
@@ -78,22 +101,35 @@ public class FCFMPerfilUsuario extends Fragment {
         });
 
         listviewMascotas= (ListView) view.findViewById(R.id.listadoMascotasUsuario);
-        listviewMascotas.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+
+        _listadoAd= new FCFMAdaptadorMascotasDetalleUsuario();
+        listviewMascotas.setAdapter(_listadoAd);
+
+        listviewMascotas.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                interfaceDetalleUsuario.cargaMascotaConMoeloDetalleUsuario((FCFMMascota) view.getTag());
             }
         });
 
         return view;
     }
 
-    void initTablaMascotasUsuario(){
-
+    @Override
+    public void estaDescarga(String string) {
+        try {
+            JSONArray array =new JSONArray(string);
+            _listaMascotas.clear();
+            for (int i = 0; i < array.length(); i++) {
+                _listaMascotas.add(new FCFMMascota(array.optJSONObject(i)));
+            }
+            _listadoAd.set_lista(_listaMascotas);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
     }
+
+    public interface interfaceTocoMascotaDetalleUsuario {
+        public void cargaMascotaConMoeloDetalleUsuario(FCFMMascota mascotaModelo);
+    };
 }

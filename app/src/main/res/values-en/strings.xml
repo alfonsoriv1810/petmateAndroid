@@ -1,12 +1,16 @@
 <resources>
-    <string name="app_name">Idiomas</string>
+    <string name="app_name">Petmate</string>
 
     <string name="placeHolderNombreMascotaNueva">Name of the pet</string>
     <string name="placeHolderNombreColorMascotaNueva">Color of the pet</string>
     <string name="placeHolderSexoMascotaNueva">Choose the gender of the pet</string>
     <string name="placeHolderRazaNuevaMascota">Choose the race of your pet</string>
+    <string name="tituloNuevaMascota">Add you new pet</string>
 
     <string name="tituloCargando">Loading...</string>
+
+    <string name="sexoMachoMascotaDetalle">Male</string>
+    <string name="sexoHembraMascotaDetalle">Female</string>
 
     <string-array name="str_spinnerIdiomas">
         <item>Spanish</item>

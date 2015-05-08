@@ -26,57 +26,44 @@ import java.util.LinkedList;
  */
 
 public class FCFMListadoFragment extends Fragment implements DescargaServicio.onDowloadList {
-    public  ListView listviewMascotas;
-    private LinkedList<FCFMMascota> _listaMascotas=new LinkedList<>();
+    public ListView listviewMascotas;
+    private LinkedList<FCFMMascota> _listaMascotas = new LinkedList<>();
     private AdaptadorMascotasHome _listadoAd;
-    public FCFMListadoFragment(){
+    private tocoMascota interfaceTocoMascota;
 
+    public FCFMListadoFragment() {
     }
 
     @Override
     public void onResume() {
         super.onResume();
         DescargaServicio descargaServicio = new DescargaServicio(this);
-        descargaServicio.execute(FCFMSingleton.baseURL + "/petmateServicios/get_mascotas.php");
+        descargaServicio.execute(FCFMSingleton.baseURL + "get_home.php");
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fcfm_listado_mascotas, container, false);
-        listviewMascotas= (ListView) view.findViewById(R.id.lvMascotas);
-        _listadoAd= new AdaptadorMascotasHome();
+        listviewMascotas = (ListView) view.findViewById(R.id.lvMascotas);
+        _listadoAd = new AdaptadorMascotasHome();
         listviewMascotas.setAdapter(_listadoAd);
-        listviewMascotas.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+
+        interfaceTocoMascota = (tocoMascota) inflater.getContext();
+
+        listviewMascotas.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Log.e("", "TAG ---->" + view.getTag());
+                interfaceTocoMascota.cargaMascotaConMoelo((FCFMMascota) view.getTag());
             }
         });
-
         return view;
     }
 
-
-
-    public static void initTablaMascotas(ArrayList<?> arregloMascotas){
-
-        /*if (arregloMascotas != null) {
-            ArrayAdapter<FCFMMascota> adapter = new ArrayAdapter<FCFMMascota>(MainActivity.getAppContext(), R.layout.fcfm_item_listado_mascotas, arregloMascotas);
-            listviewMascotas.setAdapter(adapter);
-        }*/
-    }
-    private void parseaJson(){
-
-    }
     @Override
     public void estaDescarga(String string) {
         try {
-            JSONArray array =new JSONArray(string);
+            JSONArray array = new JSONArray(string);
             _listaMascotas.clear();
             for (int i = 0; i < array.length(); i++) {
                 _listaMascotas.add(new FCFMMascota(array.optJSONObject(i)));
@@ -86,4 +73,10 @@ public class FCFMListadoFragment extends Fragment implements DescargaServicio.on
             e.printStackTrace();
         }
     }
+
+    public interface tocoMascota {
+        public void cargaMascotaConMoelo(FCFMMascota mascotaModelo);
+    }
+
+    ;
 }

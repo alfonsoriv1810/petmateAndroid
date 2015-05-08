@@ -1,32 +1,26 @@
 package com.petmate.fcfm.petmate;
 
-import android.app.ProgressDialog;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Button;
 import android.widget.TabHost;
 
 import com.nostra13.universalimageloader.cache.memory.impl.WeakMemoryCache;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
-import com.petmate.fcfm.petmate.asynckTasks.FCFMColeccionMascotas;
-import com.petmate.fcfm.petmate.constantes.FCFMSingleton;
+import com.petmate.fcfm.petmate.fragmentos.FCFMDetalleMascotaFragmento;
+import com.petmate.fcfm.petmate.fragmentos.FCFMListadoFavoritosFragment;
 import com.petmate.fcfm.petmate.fragmentos.FCFMListadoFragment;
+import com.petmate.fcfm.petmate.fragmentos.FCFMPerfilUsuario;
 import com.petmate.fcfm.petmate.modelos.FCFMMascota;
-import com.petmate.fcfm.petmate.utilidades.DescargaServicio;
-
-import org.json.JSONArray;
-import org.json.JSONException;
 
 import java.util.ArrayList;
 
-public class MainActivity extends FragmentActivity   {
+public class MainActivity extends FragmentActivity implements FCFMListadoFragment.tocoMascota, FCFMListadoFavoritosFragment.interfaceTocoMascotaFavorito, FCFMPerfilUsuario.interfaceTocoMascotaDetalleUsuario {
     private ImageLoaderConfiguration _config;
     TabHost menuTab;
     @Override
@@ -105,9 +99,22 @@ public class MainActivity extends FragmentActivity   {
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                FCFMListadoFragment.initTablaMascotas(arregloMascotas);
             }
         });
     }
 
+    @Override
+    public void cargaMascotaConMoelo(FCFMMascota mascotaModelo) {
+        getSupportFragmentManager().beginTransaction().replace(R.id.pantallaInicioPetMate, new FCFMDetalleMascotaFragmento(mascotaModelo)).addToBackStack("detalleMascota").commit();
+    }
+
+    @Override
+    public void cargaMascotaConMoeloFavoritos(FCFMMascota mascotaModelo) {
+        getSupportFragmentManager().beginTransaction().replace(R.id.pantallaInicioPetMate, new FCFMDetalleMascotaFragmento(mascotaModelo)).addToBackStack("detalleMascota").commit();
+    }
+
+    @Override
+    public void cargaMascotaConMoeloDetalleUsuario(FCFMMascota mascotaModelo) {
+        getSupportFragmentManager().beginTransaction().replace(R.id.pantallaInicioPetMate, new FCFMDetalleMascotaFragmento(mascotaModelo)).addToBackStack("detalleMascota").commit();
+    }
 }

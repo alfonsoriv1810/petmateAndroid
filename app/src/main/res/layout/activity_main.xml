@@ -1,27 +1,32 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" tools:context=".MainActivity">
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/pantallaInicioPetMate"
+    tools:context=".MainActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:background="#fff2af13">
+
         <TextView
+            android:id="@+id/textViewNombreAppBarra"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:id="@+id/textViewNombreAppBarra"
-            android:textColor="#FFFF"
-            android:text="Petmate"
-            android:gravity="center"
-            android:textSize="25dp"
             android:layout_marginLeft="5dp"
+            android:gravity="center"
+            android:text="Petmate"
+            android:textColor="#FFFF"
+            android:textSize="25dp"
             android:textStyle="bold" />
+
         <ImageView
             android:layout_width="30dp"
             android:layout_height="match_parent"
+            android:layout_margin="5dp"
             android:scaleType="fitCenter"
-            android:src="@drawable/icn_btn_nueva_mascota_false"
-            android:layout_margin="5dp" />
+            android:src="@drawable/icn_btn_nueva_mascota_false" />
     </LinearLayout>
 
     <TabHost
@@ -36,100 +41,53 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <FrameLayout
                 android:id="@android:id/tabcontent"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:padding="5dp"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:padding="5dp">
 
                 <fragment
-                    android:name="com.petmate.fcfm.petmate.fragmentos.FCFMListadoFragment"
                     android:id="@+id/tab1"
+                    android:name="com.petmate.fcfm.petmate.fragmentos.FCFMListadoFragment"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="vertical"/>
+                    android:orientation="vertical" />
 
-                <LinearLayout
+                <fragment
                     android:id="@+id/tab2"
+                    android:name="com.petmate.fcfm.petmate.fragmentos.FCFMListadoFavoritosFragment"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:paddingLeft="@dimen/activity_horizontal_margin"
-                    android:paddingRight="@dimen/activity_horizontal_margin">
+                    android:layout_height="match_parent" />
 
-                    <EditText
-                        android:id="@+id/txtContact"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:ems="10"
-                        android:inputType="textPersonName" >
-
-                        <requestFocus />
-                    </EditText>
-
-                    <Button
-                        android:id="@+id/btnSaveInternal"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_marginBottom="50dp"
-                        android:layout_marginTop="50dp"
-                        android:text="Guarda" />
-
-                    <Button
-                        android:id="@+id/btnSaveExternal"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:text="Guarda2" />
-
-                </LinearLayout>
-
-                <LinearLayout
+                <fragment
                     android:id="@+id/tab3"
+                    android:name="com.petmate.fcfm.petmate.fragmentos.FCFMAltaMascota"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingLeft="@dimen/activity_horizontal_margin"
+                    android:paddingRight="@dimen/activity_horizontal_margin" />
+
+                <fragment
+                    android:id="@+id/tab4"
+                    android:name="com.petmate.fcfm.petmate.fragmentos.FCFMPerfilUsuario"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical"
                     android:paddingLeft="@dimen/activity_horizontal_margin"
-                    android:paddingRight="@dimen/activity_horizontal_margin">
-
-                    <ImageView
-                        android:id="@+id/imgContact"
-                        android:layout_width="match_parent"
-                        android:layout_height="150dp"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_marginBottom="50dp"
-                        android:src="@mipmap/ic_launcher" />
-
-                    <Button
-                        android:id="@+id/btnCamara"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:text="Camara" />
-
-                </LinearLayout>
+                    android:paddingRight="@dimen/activity_horizontal_margin" />
 
                 <fragment
-                    android:name="com.petmate.fcfm.petmate.fragmentos.FCFMPerfilUsuario"
-                    android:id="@+id/tab4"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation = "vertical"
-                    android:paddingLeft="@dimen/activity_horizontal_margin"
-                    android:paddingRight="@dimen/activity_horizontal_margin"/>
-
-                <fragment
-                    android:name="com.petmate.fcfm.petmate.fragmentos.FCFMConfiguracion"
                     android:id="@+id/tab5"
+                    android:name="com.petmate.fcfm.petmate.fragmentos.FCFMConfiguracion"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation = "vertical"
+                    android:orientation="vertical"
                     android:paddingLeft="@dimen/activity_horizontal_margin"
-                    android:paddingRight="@dimen/activity_horizontal_margin"/>
+                    android:paddingRight="@dimen/activity_horizontal_margin" />
 
             </FrameLayout>
 
@@ -137,11 +95,10 @@
                 android:id="@android:id/tabs"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="0"
-                android:layout_marginBottom="0dp">
-            </TabWidget>
+                android:layout_marginBottom="0dp"
+                android:layout_weight="0"></TabWidget>
 
         </LinearLayout>
     </TabHost>
 
-</RelativeLayout>
+</FrameLayout>
