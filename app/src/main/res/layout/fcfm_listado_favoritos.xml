@@ -9,4 +9,15 @@
         android:id="@+id/listViewFavoritosMascotas"
         android:layout_margin="5dp"></ListView>
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:id="@+id/textViewSinMascotas"
+        android:text="No se encontraron mascotas"
+        android:visibility="gone"
+        android:textAlignment="center"
+        android:textSize="25dp"
+        android:textStyle="bold|italic" />
+
 </LinearLayout>

@@ -16,27 +16,6 @@
         <dex dex="/Users/alfonso/Documents/ReposLMAD/petmateAndroid/app/build/intermediates/pre-dexed/debug/classes-fde282c33501ce338a28688254a8bc3fe522a265.jar" />
     </item>
     <item
-        jar="/Users/alfonso/Documents/ReposLMAD/petmateAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-identity/7.3.0/classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="b48d5c51a9a9e329005106b4667f54948de4d4d8">
-        <dex dex="/Users/alfonso/Documents/ReposLMAD/petmateAndroid/app/build/intermediates/pre-dexed/debug/classes-a2f6ba4c916be0d5cf2562c1671514411f502e79.jar" />
-    </item>
-    <item
-        jar="/Users/alfonso/Documents/ReposLMAD/petmateAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-analytics/7.3.0/classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="9c9dea9e85aceb09d95df5e6f7bc8a43fc286068">
-        <dex dex="/Users/alfonso/Documents/ReposLMAD/petmateAndroid/app/build/intermediates/pre-dexed/debug/classes-913230d5e959b4bd70f2599f3a0f16fdf75128e5.jar" />
-    </item>
-    <item
-        jar="/Users/alfonso/Documents/ReposLMAD/petmateAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-games/7.3.0/classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="3b4ff5c39dace8f3b4ab4cab8191785547a0815f">
-        <dex dex="/Users/alfonso/Documents/ReposLMAD/petmateAndroid/app/build/intermediates/pre-dexed/debug/classes-8b8fff7d490e18440a555ac91f95e1f13e4a5701.jar" />
-    </item>
-    <item
         jar="/Users/alfonso/Documents/ReposLMAD/petmateAndroid/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.1.1/libs/internal_impl-22.1.1.jar"
         jumboMode="false"
         revision="21.1.2"
@@ -44,32 +23,11 @@
         <dex dex="/Users/alfonso/Documents/ReposLMAD/petmateAndroid/app/build/intermediates/pre-dexed/debug/internal_impl-22.1.1-6cbdfad715938c8ee3b9b8c4272728ba2bfa5207.jar" />
     </item>
     <item
-        jar="/Users/alfonso/Documents/ReposLMAD/petmateAndroid/app/libs/android-async-http-1.4.6.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="a845a88238be0b5be9d238652c1bc0605ef91f52">
-        <dex dex="/Users/alfonso/Documents/ReposLMAD/petmateAndroid/app/build/intermediates/pre-dexed/debug/android-async-http-1.4.6-38569b1289ea7548cc11ddf55364f895b2bdf926.jar" />
-    </item>
-    <item
         jar="/Users/alfonso/Documents/ReposLMAD/petmateAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-fitness/7.3.0/classes.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="4f4fe3c23776540625f3c2844152a7510fddf9f1">
         <dex dex="/Users/alfonso/Documents/ReposLMAD/petmateAndroid/app/build/intermediates/pre-dexed/debug/classes-c1e98a40f71457977cf133b27bde9880c1582a9d.jar" />
-    </item>
-    <item
-        jar="/Users/alfonso/Documents/ReposLMAD/petmateAndroid/app/libs/universal-image-loader-1.9.3.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="a85588bec3e2c4584d593d3f15df1677321bca72">
-        <dex dex="/Users/alfonso/Documents/ReposLMAD/petmateAndroid/app/build/intermediates/pre-dexed/debug/universal-image-loader-1.9.3-b362c732f9345802ba798ea8d3ff4042b2f953a3.jar" />
-    </item>
-    <item
-        jar="/Users/alfonso/Documents/ReposLMAD/petmateAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast/7.3.0/classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="e5b9f5b0aa8dee788beb63d23832cb29ce771343">
-        <dex dex="/Users/alfonso/Documents/ReposLMAD/petmateAndroid/app/build/intermediates/pre-dexed/debug/classes-c99324bb1b9cdc6768465cf5fca420bd6f395433.jar" />
     </item>
     <item
         jar="/Users/alfonso/Documents/ReposLMAD/petmateAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-maps/7.3.0/classes.jar"
@@ -107,6 +65,62 @@
         <dex dex="/Users/alfonso/Documents/ReposLMAD/petmateAndroid/app/build/intermediates/pre-dexed/debug/classes-55bc6785e377866a73a5671812d336431348a96e.jar" />
     </item>
     <item
+        jar="/Users/alfonso/Documents/ReposLMAD/petmateAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-wallet/7.3.0/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="6046e5cdaf799120b7c56a5a061d80e8854c4d34">
+        <dex dex="/Users/alfonso/Documents/ReposLMAD/petmateAndroid/app/build/intermediates/pre-dexed/debug/classes-b03a142ca8e27792db137974d9c2a61906f943fd.jar" />
+    </item>
+    <item
+        jar="/Users/alfonso/Documents/ReposLMAD/petmateAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-gcm/7.3.0/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="7215ac1f2fca947b9415a6ee2a1bf991364aab24">
+        <dex dex="/Users/alfonso/Documents/ReposLMAD/petmateAndroid/app/build/intermediates/pre-dexed/debug/classes-a48756d536be3e5aa0f1cebfdaa75871b40a2b4c.jar" />
+    </item>
+    <item
+        jar="/Users/alfonso/Documents/ReposLMAD/petmateAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-identity/7.3.0/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="b48d5c51a9a9e329005106b4667f54948de4d4d8">
+        <dex dex="/Users/alfonso/Documents/ReposLMAD/petmateAndroid/app/build/intermediates/pre-dexed/debug/classes-a2f6ba4c916be0d5cf2562c1671514411f502e79.jar" />
+    </item>
+    <item
+        jar="/Users/alfonso/Documents/ReposLMAD/petmateAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-analytics/7.3.0/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="9c9dea9e85aceb09d95df5e6f7bc8a43fc286068">
+        <dex dex="/Users/alfonso/Documents/ReposLMAD/petmateAndroid/app/build/intermediates/pre-dexed/debug/classes-913230d5e959b4bd70f2599f3a0f16fdf75128e5.jar" />
+    </item>
+    <item
+        jar="/Users/alfonso/Documents/ReposLMAD/petmateAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-games/7.3.0/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="3b4ff5c39dace8f3b4ab4cab8191785547a0815f">
+        <dex dex="/Users/alfonso/Documents/ReposLMAD/petmateAndroid/app/build/intermediates/pre-dexed/debug/classes-8b8fff7d490e18440a555ac91f95e1f13e4a5701.jar" />
+    </item>
+    <item
+        jar="/Users/alfonso/Documents/ReposLMAD/petmateAndroid/app/libs/android-async-http-1.4.6.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="a845a88238be0b5be9d238652c1bc0605ef91f52">
+        <dex dex="/Users/alfonso/Documents/ReposLMAD/petmateAndroid/app/build/intermediates/pre-dexed/debug/android-async-http-1.4.6-38569b1289ea7548cc11ddf55364f895b2bdf926.jar" />
+    </item>
+    <item
+        jar="/Users/alfonso/Documents/ReposLMAD/petmateAndroid/app/libs/universal-image-loader-1.9.3.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="a85588bec3e2c4584d593d3f15df1677321bca72">
+        <dex dex="/Users/alfonso/Documents/ReposLMAD/petmateAndroid/app/build/intermediates/pre-dexed/debug/universal-image-loader-1.9.3-b362c732f9345802ba798ea8d3ff4042b2f953a3.jar" />
+    </item>
+    <item
+        jar="/Users/alfonso/Documents/ReposLMAD/petmateAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast/7.3.0/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="e5b9f5b0aa8dee788beb63d23832cb29ce771343">
+        <dex dex="/Users/alfonso/Documents/ReposLMAD/petmateAndroid/app/build/intermediates/pre-dexed/debug/classes-c99324bb1b9cdc6768465cf5fca420bd6f395433.jar" />
+    </item>
+    <item
         jar="/Users/alfonso/Documents/ReposLMAD/petmateAndroid/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.1.1/classes.jar"
         jumboMode="false"
         revision="21.1.2"
@@ -126,20 +140,6 @@
         revision="21.1.2"
         sha1="0180d031a7b54dabb93b4af3869468b55dc938bd">
         <dex dex="/Users/alfonso/Documents/ReposLMAD/petmateAndroid/app/build/intermediates/pre-dexed/debug/classes-c1b90aa04a9d389cb08a4d87fcc48ce09bf2be17.jar" />
-    </item>
-    <item
-        jar="/Users/alfonso/Documents/ReposLMAD/petmateAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-wallet/7.3.0/classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="6046e5cdaf799120b7c56a5a061d80e8854c4d34">
-        <dex dex="/Users/alfonso/Documents/ReposLMAD/petmateAndroid/app/build/intermediates/pre-dexed/debug/classes-b03a142ca8e27792db137974d9c2a61906f943fd.jar" />
-    </item>
-    <item
-        jar="/Users/alfonso/Documents/ReposLMAD/petmateAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-gcm/7.3.0/classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="7215ac1f2fca947b9415a6ee2a1bf991364aab24">
-        <dex dex="/Users/alfonso/Documents/ReposLMAD/petmateAndroid/app/build/intermediates/pre-dexed/debug/classes-a48756d536be3e5aa0f1cebfdaa75871b40a2b4c.jar" />
     </item>
     <item
         jar="/Users/alfonso/Documents/ReposLMAD/petmateAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-plus/7.3.0/classes.jar"

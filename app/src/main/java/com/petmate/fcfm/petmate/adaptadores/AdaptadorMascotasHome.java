@@ -45,7 +45,7 @@ public class AdaptadorMascotasHome extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        if(convertView==null){
+        if(convertView == null){
             convertView = View.inflate(parent.getContext(), R.layout.fcfm_item_listado_mascotas,null);
         }
         ImageView imagenMascotaListado = (ImageView) convertView.findViewById(R.id.imagenMascotaListado);

@@ -62,7 +62,7 @@ public class FCFMColeccionMascotas extends AsyncTask<Void, Void, Void> {
     protected void onPreExecute() {
         super.onPreExecute();
         // Showing progress dialog
-        FCFMSingleton.muestraPrograsDialogConTexto(context.getString(R.string.tituloCargando),context);
+        FCFMSingleton.muestraPrograsDialogConTexto(context);
     }
 
     @Override

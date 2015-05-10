@@ -47,7 +47,7 @@ public class FCFMListadoFragment extends Fragment implements DescargaServicio.on
         listviewMascotas = (ListView) view.findViewById(R.id.lvMascotas);
         _listadoAd = new AdaptadorMascotasHome();
         listviewMascotas.setAdapter(_listadoAd);
-
+        FCFMSingleton.adapterHome = _listadoAd;
         interfaceTocoMascota = (tocoMascota) inflater.getContext();
 
         listviewMascotas.setOnItemClickListener(new AdapterView.OnItemClickListener() {

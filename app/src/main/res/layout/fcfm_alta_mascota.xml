@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -11,51 +11,60 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
             android:layout_marginTop="20dp"
             android:gravity="center"
             android:text="@string/tituloNuevaMascota"
-            android:textSize="25dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
-            android:layout_marginBottom="20dp" />
+            android:textSize="25dp" />
 
         <EditText
             android:id="@+id/editTextNombreMascotaNueva"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
-            android:hint="@string/placeHolderNombreMascotaNueva"
-            android:layout_marginBottom="10dp" />
+            android:hint="@string/placeHolderNombreMascotaNueva" />
 
         <EditText
             android:id="@+id/editTextColorMascotaNueva"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
-            android:hint="@string/placeHolderNombreColorMascotaNueva"
-            android:layout_marginBottom="10dp" />
+            android:hint="@string/placeHolderNombreColorMascotaNueva" />
 
         <Spinner
             android:id="@+id/spinnerSexoMascotaNueva"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
             android:contentDescription="@string/placeHolderSexoMascotaNueva"
-            android:layout_marginBottom="10dp"></Spinner>
+            android:entries="@array/str_spinnerSexo"></Spinner>
 
         <Spinner
-            android:id="@+id/spinnerRazaMascotaNueva"
+            android:id="@+id/spinnerRaza"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
-            android:contentDescription="@string/placeHolderSexoMascotaNueva"
-            android:layout_marginTop="5dp">
+            android:layout_marginTop="5dp"
+            android:contentDescription="@string/placeHolderSexoMascotaNueva"></Spinner>
 
-        </Spinner>
+        <Button
+            android:id="@+id/botonAgregaMascota"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/btn_con_borde"
+            android:gravity="center"
+            android:text="Agregar"
+            android:textColor="#FFFF" />
 
     </LinearLayout>
 </ScrollView>

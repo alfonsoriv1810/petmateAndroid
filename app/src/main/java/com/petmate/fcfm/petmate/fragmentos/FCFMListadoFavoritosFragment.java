@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.petmate.fcfm.petmate.R;
 import com.petmate.fcfm.petmate.adaptadores.FCFMAdaptadorMascotasDetalleUsuario;
@@ -26,6 +27,7 @@ import java.util.LinkedList;
 public class FCFMListadoFavoritosFragment extends Fragment implements DescargaServicio.onDowloadList {
 
     ListView listViewFavoritos;
+    TextView textViewSinMascotas;
     private LinkedList<FCFMMascota> _listaMascotas = new LinkedList<>();
     private FCFMAdaptadorMascotasDetalleUsuario _listadoAd;
     private interfaceTocoMascotaFavorito interfaceTocoMascota;
@@ -33,13 +35,19 @@ public class FCFMListadoFavoritosFragment extends Fragment implements DescargaSe
     @Override
     public void onResume() {
         super.onResume();
-        DescargaServicio descargaServicio = new DescargaServicio(this);
-        descargaServicio.execute(FCFMSingleton.baseURL + "get_favoritos.php?usuario_id=" + FCFMSingleton.usuario.getIdUsuario());
+
+        if (FCFMSingleton.usuario != null){
+            DescargaServicio descargaServicio = new DescargaServicio(this);
+            descargaServicio.execute(FCFMSingleton.baseURL + "get_favoritos.php?usuario_id=" + FCFMSingleton.usuario.getIdUsuario());
+        }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fcfm_listado_favoritos, container, false);
+
+        textViewSinMascotas = (TextView) view.findViewById(R.id.textViewSinMascotas);
+
         listViewFavoritos = (ListView) view.findViewById(R.id.listViewFavoritosMascotas);
         _listadoAd= new FCFMAdaptadorMascotasDetalleUsuario();
         listViewFavoritos.setAdapter(_listadoAd);
@@ -58,13 +66,24 @@ public class FCFMListadoFavoritosFragment extends Fragment implements DescargaSe
     @Override
     public void estaDescarga(String string) {
         try {
-            JSONArray array =new JSONArray(string);
-            _listaMascotas.clear();
-            for (int i = 0; i < array.length(); i++) {
-                _listaMascotas.add(new FCFMMascota(array.optJSONObject(i)));
+            JSONArray array = new JSONArray(string);
+            if (array.length() > 0) {
+                listViewFavoritos.setVisibility(View.VISIBLE);
+                textViewSinMascotas.setVisibility(View.GONE);
+                _listaMascotas.clear();
+                for (int i = 0; i < array.length(); i++) {
+                    Log.e("OBTIENE DE FAVORITOS ------------->", ""+array.optJSONObject(i));
+                    FCFMMascota mascotaAgregar = new FCFMMascota(array.optJSONObject(i));
+                    _listaMascotas.add(new FCFMMascota(array.optJSONObject(i)));
+                }
+                _listadoAd.set_lista(_listaMascotas);
+            } else {
+                listViewFavoritos.setVisibility(View.GONE);
+                textViewSinMascotas.setVisibility(View.VISIBLE);
             }
-            _listadoAd.set_lista(_listaMascotas);
         } catch (JSONException e) {
+            listViewFavoritos.setVisibility(View.GONE);
+            textViewSinMascotas.setVisibility(View.VISIBLE);
             e.printStackTrace();
         }
     }

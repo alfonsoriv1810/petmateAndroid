@@ -7,18 +7,20 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.petmate.fcfm.petmate.MainActivity2">
+    tools:context="com.petmate.fcfm.petmate.LoginActivity">
 
     <EditText
         android:id="@+id/usuario"
         android:layout_width="match_parent"
-        android:layout_height="55dp" />
+        android:layout_height="55dp"
+        android:hint="Correo ej:usuario@correo.com" />
 
     <EditText
         android:id="@+id/contrasena"
         android:layout_width="match_parent"
         android:layout_height="55dp"
-        android:password="true" />
+        android:password="true"
+        android:hint="Contraseña" />
 
     <Button
         android:id="@+id/login"
@@ -44,6 +46,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
         android:id="@+id/editTextNombreUsuarioRegistro"
+        android:hint="Nombre ej:Nombre"
         android:visibility="gone" />
 
     <EditText
@@ -52,6 +55,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
         android:id="@+id/editTextCorreoUsuarioRegistro"
+        android:hint="Correo ej:correo@correo.com"
         android:visibility="gone" />
 
     <EditText
@@ -60,6 +64,8 @@
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
         android:id="@+id/editTextContrasenaUsuarioRegistro"
+        android:password="true"
+        android:hint="Contraseña"
         android:visibility="gone" />
 
     <EditText
@@ -68,6 +74,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
         android:id="@+id/editTextTelefonoUsuarioRegistro"
+        android:hint="Telefono ej:81-10-29-92"
         android:visibility="gone" />
 
     <Button
@@ -77,7 +84,9 @@
         android:textColor="#FFFF"
         android:background="@drawable/btn_con_borde"
         android:text="Aceptar"
-        android:visibility="gone"/>
+        android:visibility="gone"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"/>
 
     <Button
         android:id="@+id/cancelarRegistro"
@@ -86,6 +95,7 @@
         android:textColor="#FFFF"
         android:background="@drawable/btn_con_borde"
         android:text="Cancelar"
-        android:visibility="gone"/>
+        android:visibility="gone"
+        android:layout_marginBottom="10dp"/>
 
 </LinearLayout>

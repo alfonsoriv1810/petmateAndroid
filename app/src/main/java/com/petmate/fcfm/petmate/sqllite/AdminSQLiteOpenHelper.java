@@ -17,11 +17,15 @@ public class AdminSQLiteOpenHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("create table Usuario(id integer primary key autoincrement, nombre text,contrasena text)");
+        db.execSQL("create table Razas(id integer primary key autoincrement, idRaza integer, nombreRaza text, fotoRaza text)");
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int versionAnte, int versionNue) {
         db.execSQL("drop table if exists Usuario");
         db.execSQL("create table Usuario(id integer primary key autoincrement, nombre text,contrasena text)");
+
+        db.execSQL("drop table if exist Razas");
+        db.execSQL("create table Razas(id integer primary key autoincrement, idRaza integer, nombreRaza text, fotoRaza text)");
     }
 }

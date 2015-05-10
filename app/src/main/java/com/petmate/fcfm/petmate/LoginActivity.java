@@ -6,13 +6,22 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.location.Address;
+import android.location.Criteria;
+import android.location.Geocoder;
+import android.location.Location;
+import android.location.LocationManager;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.GooglePlayServicesUtil;
+import com.google.android.gms.maps.model.LatLng;
 import com.petmate.fcfm.petmate.constantes.FCFMSingleton;
 import com.petmate.fcfm.petmate.modelos.FCFMUsuario;
 import com.petmate.fcfm.petmate.sqllite.AdminSQLiteOpenHelper;
@@ -21,18 +30,28 @@ import com.petmate.fcfm.petmate.utilidades.DescargaServicio;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.IOException;
+import java.util.List;
+import java.util.Locale;
 
-public class MainActivity2 extends ActionBarActivity implements DescargaServicio.onDowloadList {
+
+public class LoginActivity extends ActionBarActivity implements DescargaServicio.onDowloadList {
 
     Boolean seRegistro = false;
     SharedPreferences preferences;
+    LocationManager locationManager;
+    LatLng currentLocation;
+    String ciudadUsuarioRegistro;
+    String estadoUsuarioRegistro;
 
     @Override
     protected void onResume() {
         super.onResume();
         preferences = this.getSharedPreferences("usuario", Context.MODE_PRIVATE);
-        if (preferences != null && preferences.getAll().size() > 0)
+        if (preferences != null && preferences.getAll().size() > 0) {
+            FCFMSingleton.usuario = new FCFMUsuario(preferences.getString("correoUsuario", ""), preferences.getString("contrasenaUsuario", ""), preferences.getString("nombreUsuario", ""), preferences.getInt("idUsuario", 0), preferences.getString("telefonoUsuario", ""), preferences.getString("estadoUsuario", ""));
             initActividad();
+        }
     }
 
     @Override
@@ -43,6 +62,17 @@ public class MainActivity2 extends ActionBarActivity implements DescargaServicio
         final Button registrarte = (Button) findViewById(R.id.registrar);
         final EditText usuario = (EditText) findViewById(R.id.usuario);
         final EditText contrasena = (EditText) findViewById(R.id.contrasena);
+
+        //Servicios de Localizacion
+        int playServicesStatus= GooglePlayServicesUtil.isGooglePlayServicesAvailable(this);
+        if(playServicesStatus== ConnectionResult.SUCCESS){
+            currentLocation = getLocacion();
+            if(currentLocation == null){
+                currentLocation = new LatLng(25.65, -100.29);
+            }
+        }else{
+            FCFMSingleton.showMessage("No puede usar mapas", this);
+        }
 
         //Vistas para registrar
         final Button botonAceptarRegisto = (Button) findViewById(R.id.aceptarRegistro);
@@ -59,7 +89,7 @@ public class MainActivity2 extends ActionBarActivity implements DescargaServicio
                                      public void onClick(View v) {
                                          seRegistro = false;
                                          if (!usuario.getText().toString().equals("") && !contrasena.getText().toString().equals("")) {
-                                             FCFMSingleton.muestraPrograsDialogConTexto("Cargando...", v.getContext());
+                                             FCFMSingleton.muestraPrograsDialogConTexto(v.getContext());
                                              consulta(usuario.getText().toString(), contrasena.getText().toString());
                                          } else {
                                              Toast.makeText(v.getContext(), "Falta un campo por llenar", Toast.LENGTH_SHORT).show();
@@ -121,7 +151,7 @@ public class MainActivity2 extends ActionBarActivity implements DescargaServicio
                 botonCancelarRegistro.setVisibility(View.GONE);
 
                 if (!editTextNombreRegistro.getText().toString().equals("") && !editTextCorreoRegistro.getText().toString().equals("") && !editTextContraRegistro.getText().toString().equals("") && !editTextTelefonoRegistro.getText().toString().equals("")) {
-                    FCFMSingleton.muestraPrograsDialogConTexto("Cargando...", v.getContext());
+                    FCFMSingleton.muestraPrograsDialogConTexto(v.getContext());
                     descargaServicio.execute(FCFMSingleton.baseURL + "insertar_usuario.php?nombre=" + editTextNombreRegistro.getText().toString() + "&correo=" + editTextCorreoRegistro.getText().toString() + "&contra=" + editTextContraRegistro.getText().toString() + "&telefono=" + editTextTelefonoRegistro.getText().toString() + "&estado=Monterrey" + "&foto_path=foto");
                 } else {
                     Toast.makeText(v.getContext(), "Falta un campo por llenar", Toast.LENGTH_SHORT).show();
@@ -131,16 +161,14 @@ public class MainActivity2 extends ActionBarActivity implements DescargaServicio
     }
 
     public void consulta(String usuario, String password) {
-        AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "administracion", null, 2);
+        AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "administracion", null, 4);
         SQLiteDatabase bd = admin.getWritableDatabase();
         Cursor fila = bd.rawQuery("select nombre,contrasena from Usuario ", null);
         if (fila.moveToFirst()) {
             if (usuario.toLowerCase().equals(fila.getString(0).toLowerCase()) && password.toLowerCase().equals(fila.getString(1).toLowerCase())) {
                 FCFMSingleton.escondeProgressDialog();
-                initActividad();
             }
         } else {
-            //Hacer request a la BD y si la BD contesta que no existe mostrar Toast
             DescargaServicio descargaServicio = new DescargaServicio(this);
             descargaServicio.execute(FCFMSingleton.baseURL + "existe_usuario.php?usuario_correo=" + usuario + "&usuario_contra=" + password);
         }
@@ -148,7 +176,34 @@ public class MainActivity2 extends ActionBarActivity implements DescargaServicio
     }
 
     public void alta(FCFMUsuario usuario) {
-        AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "administracion", null, 1);
+
+        //Aqui hacer google maps
+        Geocoder geocoder;
+        List<Address> addresses;
+
+        geocoder = new Geocoder(this, Locale.getDefault());
+
+        try {
+            addresses = geocoder.getFromLocation(currentLocation.latitude, currentLocation.longitude, 1); // Here 1 represent max location result to returned, by documents it recommended 1 to 5
+            String address = addresses.get(0).getAddressLine(0); // If any additional address line present than only, check with max available address lines by getMaxAddressLineIndex()
+            ciudadUsuarioRegistro = addresses.get(0).getLocality();
+            estadoUsuarioRegistro = addresses.get(0).getAdminArea();
+            String country = addresses.get(0).getCountryName();
+            String postalCode = addresses.get(0).getPostalCode();
+            String knownName = addresses.get(0).getFeatureName(); // Only if available else return NULL
+
+            Log.e("Obtuvo de google maps--->>>>>>", "Estado:" + estadoUsuarioRegistro + " Ciudad" + ciudadUsuarioRegistro);
+
+            if (!ciudadUsuarioRegistro.equals("") && !estadoUsuarioRegistro.equals("")){
+                FCFMSingleton.usuario.setEstado(ciudadUsuarioRegistro + ", " + estadoUsuarioRegistro);
+            } else {
+                FCFMSingleton.usuario.setEstado("Monterrey, Nuevo León");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "administracion", null, 4);
         SQLiteDatabase bd = admin.getWritableDatabase();
         ContentValues registro = new ContentValues();
         registro.put("correoUsuario", usuario.getUsername());
@@ -156,9 +211,38 @@ public class MainActivity2 extends ActionBarActivity implements DescargaServicio
         registro.put("nombreUsuario", usuario.getNombre());
         registro.put("idUsuario", usuario.getIdUsuario());
         registro.put("telefonoUsuario", usuario.getTelefono());
-        registro.put("estadoUsuario", usuario.getEstado());
+        if (!ciudadUsuarioRegistro.equals("") && !estadoUsuarioRegistro.equals("")){
+            registro.put("estadoUsuario",ciudadUsuarioRegistro + ", "+estadoUsuarioRegistro);
+        } else {
+            registro.put("estadoUsuario", "Monterrey, Nuevo León");
+        }
         bd.insert("Usuario", null, registro);
         bd.close();
+    }
+
+    private LatLng getLocacion() {
+        Criteria criteria = new Criteria();
+        criteria.setAccuracy(Criteria.ACCURACY_FINE);
+
+        locationManager= (LocationManager) getSystemService(LOCATION_SERVICE);
+
+        //Devuelve un string: GPS, WIFI, PASSIVE
+        String provider = locationManager.getBestProvider(criteria, true);
+
+        //Detectar si el metodo de rastreo esta activo
+        if (provider == null || !locationManager.isProviderEnabled(provider)) {
+
+        } else {
+            //Obtenemos la ultima ubicacion conocida por el proveedor seleccionado
+            Location location = locationManager.getLastKnownLocation(provider);
+
+            if (location != null) {
+                LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
+                return latLng;
+            }
+        }
+
+        return null;
     }
 
     private void initActividad() {
@@ -198,6 +282,7 @@ public class MainActivity2 extends ActionBarActivity implements DescargaServicio
             }
         } else {
             Toast.makeText(this, "Usuario incorrecto", Toast.LENGTH_SHORT).show();
+            FCFMSingleton.escondeProgressDialog();
         }
     }
 }

@@ -22,9 +22,13 @@ public class FCFMUsuario {
 
     }
 
-    public FCFMUsuario(String username, String password, String nombre, String telefono, String estado, String pathFoto) {
+    public FCFMUsuario(String username, String password, String nombre, int idUsuario, String telefono, String estado) {
         this.username = username;
         this.password = password;
+        this.nombre = nombre;
+        this.idUsuario = idUsuario;
+        this.telefono = telefono;
+        this.estado = estado;
     }
 
     public FCFMUsuario(JSONObject jsonUsuario) {

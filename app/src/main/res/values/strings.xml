@@ -13,6 +13,11 @@
     <string name="sexoHembraMascotaDetalle">Hembra</string>
 
     <string name="tituloCargando">Cargando...</string>
-    <string name="title_activity_main_activity2">MainActivity2</string>
+    <string name="title_activity_main_activity2">LoginActivity</string>
+
+    <string-array name="str_spinnerSexo">
+        <item>Hembra</item>
+        <item>Macho</item>
+    </string-array>
 
 </resources>

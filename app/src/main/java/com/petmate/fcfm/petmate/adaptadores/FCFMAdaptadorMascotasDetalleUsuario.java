@@ -61,9 +61,9 @@ public class FCFMAdaptadorMascotasDetalleUsuario extends BaseAdapter {
         textViewNombreMascotaListado.setText(_lista.get(position).getNombreMascota());
         textViewNombreRazaMascotaReducido.setText(_lista.get(position).getRazaMascota());
 
-        Boolean sexoMascota = _lista.get(position).getSexoMascota();
+        Boolean sexoMascotaUsuario = _lista.get(position).getSexoMascota();
 
-        if (sexoMascota){
+        if (sexoMascotaUsuario == true){
             textViewSexoMascotaReducido.setText("Masculino");
             imagenSexoMascota.setImageResource(R.drawable.icn_sexo_masculino_mascota);
         } else {

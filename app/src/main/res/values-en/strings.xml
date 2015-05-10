@@ -17,6 +17,11 @@
         <item>English</item>
     </string-array>
 
+    <string-array name="str_spinnerSexo">
+        <item>Female</item>
+        <item>Male</item>
+    </string-array>
+
 
 
 </resources>

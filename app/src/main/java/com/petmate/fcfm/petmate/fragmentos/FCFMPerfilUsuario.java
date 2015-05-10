@@ -31,12 +31,12 @@ public class FCFMPerfilUsuario extends Fragment implements DescargaServicio.onDo
     ListView listviewMascotas;
     Button botonEditar;
     ImageView imagenUsuario;
-    TextView textViewNombreUsuario;
-    EditText editTextNombreUsuario;
+    TextView textViewPerfil;
+    TextView textViewCorreoUsuario;
+    EditText editTextCorreoUsuario;
     TextView textViewTelefonoUsuario;
     EditText editTextTelefonoUsuario;
     TextView textViewEstadoUsuario;
-    EditText editTextEstadoUsuario;
     Boolean estaEditando = false;
     private interfaceTocoMascotaDetalleUsuario interfaceDetalleUsuario;
 
@@ -46,8 +46,10 @@ public class FCFMPerfilUsuario extends Fragment implements DescargaServicio.onDo
     @Override
     public void onResume() {
         super.onResume();
-        DescargaServicio descargaServicio = new DescargaServicio(this);
-        descargaServicio.execute(FCFMSingleton.baseURL + "get_mascotas.php?caso=1&id=" + FCFMSingleton.usuario.getIdUsuario());
+        if (FCFMSingleton.usuario != null) {
+            DescargaServicio descargaServicio = new DescargaServicio(this);
+            descargaServicio.execute(FCFMSingleton.baseURL + "get_mascotas.php?caso=1&id=" + FCFMSingleton.usuario.getIdUsuario());
+        }
     }
 
     @Override
@@ -57,14 +59,21 @@ public class FCFMPerfilUsuario extends Fragment implements DescargaServicio.onDo
 
         interfaceDetalleUsuario = (interfaceTocoMascotaDetalleUsuario) inflater.getContext();
 
+        textViewPerfil = (TextView) view.findViewById(R.id.textViewPerfil);
         imagenUsuario = (ImageView) view.findViewById(R.id.imagenUsuario);
-        textViewNombreUsuario = (TextView) view.findViewById(R.id.textViewNombreUsuario);
+        textViewCorreoUsuario = (TextView) view.findViewById(R.id.textViewCorreoUsuario);
         textViewTelefonoUsuario = (TextView) view.findViewById(R.id.textViewTelefonoUsuario);
         textViewEstadoUsuario = (TextView) view.findViewById(R.id.textViewEstadoUsuario);
 
-        editTextNombreUsuario  = (EditText) view.findViewById(R.id.editTextNombreUsuario);
+        if (FCFMSingleton.usuario != null) {
+            textViewPerfil.setText(FCFMSingleton.usuario.getNombre());
+            textViewCorreoUsuario.setText(FCFMSingleton.usuario.getUsername());
+            textViewTelefonoUsuario.setText(FCFMSingleton.usuario.getTelefono());
+            textViewEstadoUsuario.setText(FCFMSingleton.usuario.getEstado());
+        }
+
+        editTextCorreoUsuario  = (EditText) view.findViewById(R.id.editTextCorreoUsuario);
         editTextTelefonoUsuario = (EditText) view.findViewById(R.id.editTextTelefonoUsuario);
-        editTextEstadoUsuario = (EditText) view.findViewById(R.id.editTextEstadoUsuario);
 
         botonEditar = (Button) view.findViewById(R.id.botonEditar);
         botonEditar.setOnClickListener(new View.OnClickListener() {
@@ -72,30 +81,31 @@ public class FCFMPerfilUsuario extends Fragment implements DescargaServicio.onDo
             public void onClick(View v) {
                 if (estaEditando == true){
                     estaEditando = false;
-                    textViewNombreUsuario.setVisibility(View.VISIBLE);
+                    textViewCorreoUsuario.setVisibility(View.VISIBLE);
                     textViewTelefonoUsuario.setVisibility(View.VISIBLE);
                     textViewEstadoUsuario.setVisibility(View.VISIBLE);
 
-                    textViewNombreUsuario.setText(editTextNombreUsuario.getText().toString());
-                    textViewTelefonoUsuario.setText(editTextTelefonoUsuario.getText().toString());
-                    textViewEstadoUsuario.setText(editTextEstadoUsuario.getText().toString());
+                    if (FCFMSingleton.usuario != null) {
+                        textViewCorreoUsuario.setText(FCFMSingleton.usuario.getUsername());
+                        textViewTelefonoUsuario.setText(FCFMSingleton.usuario.getTelefono());
+                        textViewEstadoUsuario.setText(FCFMSingleton.usuario.getEstado());
+                    }
 
-                    editTextNombreUsuario.setVisibility(View.GONE);
+                    editTextCorreoUsuario.setVisibility(View.GONE);
                     editTextTelefonoUsuario.setVisibility(View.GONE);
-                    editTextEstadoUsuario.setVisibility(View.GONE);
                 } else  {
                     estaEditando = true;
-                    textViewNombreUsuario.setVisibility(View.GONE);
+                    textViewCorreoUsuario.setVisibility(View.GONE);
                     textViewTelefonoUsuario.setVisibility(View.GONE);
                     textViewEstadoUsuario.setVisibility(View.GONE);
 
-                    editTextNombreUsuario.setVisibility(View.VISIBLE);
+                    editTextCorreoUsuario.setVisibility(View.VISIBLE);
                     editTextTelefonoUsuario.setVisibility(View.VISIBLE);
-                    editTextEstadoUsuario.setVisibility(View.VISIBLE);
 
-                    editTextNombreUsuario.setText(textViewNombreUsuario.getText().toString());
-                    editTextTelefonoUsuario.setText(textViewTelefonoUsuario.getText().toString());
-                    editTextEstadoUsuario.setText(textViewEstadoUsuario.getText().toString());
+                    if (FCFMSingleton.usuario != null) {
+                        editTextCorreoUsuario.setText(FCFMSingleton.usuario.getUsername());
+                        editTextTelefonoUsuario.setText(FCFMSingleton.usuario.getTelefono());
+                    }
                 }
             }
         });

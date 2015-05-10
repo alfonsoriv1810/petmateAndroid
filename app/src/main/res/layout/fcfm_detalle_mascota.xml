@@ -54,6 +54,7 @@
             android:textSize="15dp"
             android:textStyle="bold" />
         <ImageButton
+            android:id="@+id/botonFavoritosAgregar"
             android:scaleType="fitCenter"
             android:layout_width="50dp"
             android:layout_height="match_parent"
