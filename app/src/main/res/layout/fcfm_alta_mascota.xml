@@ -40,7 +40,7 @@
         <Spinner
             android:id="@+id/spinnerSexoMascotaNueva"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:layout_marginBottom="10dp"
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
@@ -50,7 +50,7 @@
         <Spinner
             android:id="@+id/spinnerRaza"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
             android:layout_marginTop="5dp"
@@ -63,7 +63,7 @@
             android:layout_margin="10dp"
             android:background="@drawable/btn_con_borde"
             android:gravity="center"
-            android:text="Agregar"
+            android:text="@string/botonAgregaMascotaString"
             android:textColor="#FFFF" />
 
     </LinearLayout>

@@ -148,6 +148,7 @@ public class FCFMAltaMascota extends Fragment implements DescargaServicio.onDowl
                 }
                 FCFMSingleton.adapterHome.set_lista(_listaMascotas);
                 FCFMSingleton.escondeProgressDialog();
+                FCFMSingleton.showMessage(getString(R.string.mascotaAgregada),getActivity());
             } catch (JSONException e) {
                 e.printStackTrace();
             }

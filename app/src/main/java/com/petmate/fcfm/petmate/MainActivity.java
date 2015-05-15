@@ -2,10 +2,14 @@ package com.petmate.fcfm.petmate;
 
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
-import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.TabHost;
 
 import com.nostra13.universalimageloader.cache.memory.impl.WeakMemoryCache;
@@ -20,9 +24,12 @@ import com.petmate.fcfm.petmate.modelos.FCFMMascota;
 
 import java.util.ArrayList;
 
-public class MainActivity extends FragmentActivity implements FCFMListadoFragment.tocoMascota, FCFMListadoFavoritosFragment.interfaceTocoMascotaFavorito, FCFMPerfilUsuario.interfaceTocoMascotaDetalleUsuario {
+public class MainActivity extends FragmentActivity implements FCFMListadoFragment.tocoMascota, FCFMListadoFavoritosFragment.interfaceTocoMascotaFavorito, FCFMPerfilUsuario.interfaceTocoMascotaDetalleUsuario, Animation.AnimationListener {
+
     private ImageLoaderConfiguration _config;
     TabHost menuTab;
+    Animation animFadein;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,14 +42,11 @@ public class MainActivity extends FragmentActivity implements FCFMListadoFragmen
                 setTabColor(menuTab);
             }
         });
-        DisplayImageOptions options = new DisplayImageOptions.Builder().bitmapConfig(Bitmap.Config.RGB_565)
-                .resetViewBeforeLoading(true).showImageOnLoading(R.drawable.icn_btn_camara).cacheOnDisc(true).cacheInMemory(true).delayBeforeLoading(0).build();
-        _config = new ImageLoaderConfiguration.Builder(this).memoryCache(new WeakMemoryCache())
-                .denyCacheImageMultipleSizesInMemory()
-                .threadPoolSize(5)
-                .defaultDisplayImageOptions(options)
-                .build();
+        DisplayImageOptions options = new DisplayImageOptions.Builder().bitmapConfig(Bitmap.Config.RGB_565).resetViewBeforeLoading(true).showImageOnLoading(R.drawable.icn_btn_camara).cacheOnDisc(true).cacheInMemory(true).delayBeforeLoading(0).build();
+        _config = new ImageLoaderConfiguration.Builder(this).memoryCache(new WeakMemoryCache()).denyCacheImageMultipleSizesInMemory().threadPoolSize(5).defaultDisplayImageOptions(options).build();
         ImageLoader.getInstance().init(_config);
+        animFadein = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_in);
+        animFadein.setAnimationListener(this);
 
     }
     public void setTabColor(TabHost tabhost) {
@@ -103,18 +107,45 @@ public class MainActivity extends FragmentActivity implements FCFMListadoFragmen
         });
     }
 
+    public void muestraFragmentoAnimadoConMascotaModelo(FCFMMascota mascotaModelo){
+        FragmentManager fragmentManager = getSupportFragmentManager();
+
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
+        transaction.setCustomAnimations(R.anim.fade_in, R.anim.card_flip_left_out, R.anim.card_flip_right_in, R.anim.card_flip_right_out);
+
+        FCFMDetalleMascotaFragmento newCustomFragment = new FCFMDetalleMascotaFragmento(mascotaModelo);
+        transaction.replace(R.id.pantallaInicioPetMate, newCustomFragment );
+        transaction.addToBackStack("detalleMascota");
+        transaction.commit();
+    }
+
     @Override
     public void cargaMascotaConMoelo(FCFMMascota mascotaModelo) {
-        getSupportFragmentManager().beginTransaction().replace(R.id.pantallaInicioPetMate, new FCFMDetalleMascotaFragmento(mascotaModelo)).addToBackStack("detalleMascota").commit();
+        muestraFragmentoAnimadoConMascotaModelo(mascotaModelo);
     }
 
     @Override
     public void cargaMascotaConMoeloFavoritos(FCFMMascota mascotaModelo) {
-        getSupportFragmentManager().beginTransaction().replace(R.id.pantallaInicioPetMate, new FCFMDetalleMascotaFragmento(mascotaModelo)).addToBackStack("detalleMascota").commit();
+        muestraFragmentoAnimadoConMascotaModelo(mascotaModelo);
     }
 
     @Override
     public void cargaMascotaConMoeloDetalleUsuario(FCFMMascota mascotaModelo) {
-        getSupportFragmentManager().beginTransaction().replace(R.id.pantallaInicioPetMate, new FCFMDetalleMascotaFragmento(mascotaModelo)).addToBackStack("detalleMascota").commit();
+        muestraFragmentoAnimadoConMascotaModelo(mascotaModelo);
+    }
+
+    @Override
+    public void onAnimationStart(Animation animation) {
+
+    }
+
+    @Override
+    public void onAnimationEnd(Animation animation) {
+
+    }
+
+    @Override
+    public void onAnimationRepeat(Animation animation) {
+
     }
 }

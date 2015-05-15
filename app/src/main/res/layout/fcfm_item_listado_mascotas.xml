@@ -34,8 +34,7 @@
         android:id="@+id/imagenSexoMascotaListado"
         android:scaleType="fitCenter"
         android:src="@drawable/icn_sexo_masculino_mascota"
-        android:layout_margin="5dp" />
-
+        android:layout_margin="5dp"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -61,6 +60,7 @@
             android:layout_weight="1"
             android:layout_margin="5dp"
             android:textSize="20dp" />
+
         </LinearLayout>
     </LinearLayout>
 

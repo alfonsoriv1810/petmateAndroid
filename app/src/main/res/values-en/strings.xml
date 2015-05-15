@@ -22,6 +22,33 @@
         <item>Male</item>
     </string-array>
 
+    <string name="compartir1">I found </string>
+    <string name="compartir2">in Petmate </string>
+    <string name="textoCompartir">Choose the app that will share the pet you found</string>
 
+    <string name="contactoAgregado">Contact added to library</string>
+
+    <string name="mascotaAgregada">Pet added</string>
+
+    <string name="loginEditText">There is a missing field to fill</string>
+    <string name="falloLogin">There is an error at login</string>
+
+    <string name="botonAgregaMascotaString">Add pet</string>
+
+    <string name="correoPlaceHolder">Mail ex:user@mail.com</string>
+    <string name="contrasenaPlaceHolder">Password</string>
+
+    <string name="loginBotonString">Login</string>
+    <string name="registrarBotonString">Register</string>
+    <string name="nombrePlaceholderString">Name ex:Name</string>
+    <string name="telefonoPlaceHolderString">Telephone ex:81-10-29-92</string>
+    <string name="botonAceptarString">OK</string>
+    <string name="botonCancelarString">Cancel</string>
+
+    <string name="labelNoMascotas">No pets found</string>
+
+    <string name="botonAcercaDe">About</string>
+
+    <string name="alumnosLabel">Students</string>
 
 </resources>

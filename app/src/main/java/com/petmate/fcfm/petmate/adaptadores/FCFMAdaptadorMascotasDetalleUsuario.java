@@ -64,10 +64,10 @@ public class FCFMAdaptadorMascotasDetalleUsuario extends BaseAdapter {
         Boolean sexoMascotaUsuario = _lista.get(position).getSexoMascota();
 
         if (sexoMascotaUsuario == true){
-            textViewSexoMascotaReducido.setText("Masculino");
+            textViewSexoMascotaReducido.setText(R.string.sexoMachoMascotaDetalle);
             imagenSexoMascota.setImageResource(R.drawable.icn_sexo_masculino_mascota);
         } else {
-            textViewSexoMascotaReducido.setText("Femenino");
+            textViewSexoMascotaReducido.setText(R.string.sexoHembraMascotaDetalle);
             imagenSexoMascota.setImageResource(R.drawable.icn_sexo_femenino_mascota);
         }
         convertView.setTag(_lista.get(position));

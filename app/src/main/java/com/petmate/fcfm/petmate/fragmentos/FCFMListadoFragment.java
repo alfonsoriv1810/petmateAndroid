@@ -53,7 +53,6 @@ public class FCFMListadoFragment extends Fragment implements DescargaServicio.on
         listviewMascotas.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Log.e("", "TAG ---->" + view.getTag());
                 interfaceTocoMascota.cargaMascotaConMoelo((FCFMMascota) view.getTag());
             }
         });

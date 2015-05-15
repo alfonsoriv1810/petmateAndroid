@@ -71,7 +71,7 @@ public class LoginActivity extends ActionBarActivity implements DescargaServicio
                 currentLocation = new LatLng(25.65, -100.29);
             }
         }else{
-            FCFMSingleton.showMessage("No puede usar mapas", this);
+            //FCFMSingleton.showMessage("No puede usar mapas", this);
         }
 
         //Vistas para registrar
@@ -92,7 +92,7 @@ public class LoginActivity extends ActionBarActivity implements DescargaServicio
                                              FCFMSingleton.muestraPrograsDialogConTexto(v.getContext());
                                              consulta(usuario.getText().toString(), contrasena.getText().toString());
                                          } else {
-                                             Toast.makeText(v.getContext(), "Falta un campo por llenar", Toast.LENGTH_SHORT).show();
+                                             Toast.makeText(v.getContext(), "" + R.string.loginEditText, Toast.LENGTH_SHORT).show();
                                          }
                                      }
                                  }
@@ -152,9 +152,11 @@ public class LoginActivity extends ActionBarActivity implements DescargaServicio
 
                 if (!editTextNombreRegistro.getText().toString().equals("") && !editTextCorreoRegistro.getText().toString().equals("") && !editTextContraRegistro.getText().toString().equals("") && !editTextTelefonoRegistro.getText().toString().equals("")) {
                     FCFMSingleton.muestraPrograsDialogConTexto(v.getContext());
+                    String nombreUSuario = editTextNombreRegistro.getText().toString();
+
                     descargaServicio.execute(FCFMSingleton.baseURL + "insertar_usuario.php?nombre=" + editTextNombreRegistro.getText().toString() + "&correo=" + editTextCorreoRegistro.getText().toString() + "&contra=" + editTextContraRegistro.getText().toString() + "&telefono=" + editTextTelefonoRegistro.getText().toString() + "&estado=Monterrey" + "&foto_path=foto");
                 } else {
-                    Toast.makeText(v.getContext(), "Falta un campo por llenar", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(v.getContext(), "" + R.string.loginEditText, Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -200,6 +202,7 @@ public class LoginActivity extends ActionBarActivity implements DescargaServicio
                 FCFMSingleton.usuario.setEstado("Monterrey, Nuevo León");
             }
         } catch (IOException e) {
+            FCFMSingleton.usuario.setEstado("Monterrey, Nuevo León");
             e.printStackTrace();
         }
 
@@ -211,8 +214,12 @@ public class LoginActivity extends ActionBarActivity implements DescargaServicio
         registro.put("nombreUsuario", usuario.getNombre());
         registro.put("idUsuario", usuario.getIdUsuario());
         registro.put("telefonoUsuario", usuario.getTelefono());
-        if (!ciudadUsuarioRegistro.equals("") && !estadoUsuarioRegistro.equals("")){
-            registro.put("estadoUsuario",ciudadUsuarioRegistro + ", "+estadoUsuarioRegistro);
+        if (ciudadUsuarioRegistro != null && estadoUsuarioRegistro != null) {
+            if (!ciudadUsuarioRegistro.equals("") && !estadoUsuarioRegistro.equals("")) {
+                registro.put("estadoUsuario", ciudadUsuarioRegistro + ", " + estadoUsuarioRegistro);
+            } else {
+                registro.put("estadoUsuario", "Monterrey, Nuevo León");
+            }
         } else {
             registro.put("estadoUsuario", "Monterrey, Nuevo León");
         }
@@ -281,7 +288,7 @@ public class LoginActivity extends ActionBarActivity implements DescargaServicio
                 initActividad();
             }
         } else {
-            Toast.makeText(this, "Usuario incorrecto", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.falloLogin, Toast.LENGTH_SHORT).show();
             FCFMSingleton.escondeProgressDialog();
         }
     }

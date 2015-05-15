@@ -14,7 +14,7 @@
         android:layout_height="match_parent"
         android:gravity="center"
         android:id="@+id/textViewSinMascotas"
-        android:text="No se encontraron mascotas"
+        android:text="@string/labelNoMascotas"
         android:visibility="gone"
         android:textAlignment="center"
         android:textSize="25dp"

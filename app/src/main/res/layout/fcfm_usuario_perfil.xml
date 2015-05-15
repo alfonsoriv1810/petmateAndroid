@@ -39,7 +39,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
-        <ImageView
+        <ImageButton
             android:id="@+id/imagenUsuario"
             android:layout_width="100dp"
             android:layout_height="match_parent"
@@ -50,7 +50,8 @@
             android:src="@drawable/icn_btn_usr_true"
             android:padding="6dp"
             android:layout_alignParentLeft="true"
-            android:layout_margin="5dp" />
+            android:layout_margin="5dp"
+            android:background="#00ffffff" />
             <LinearLayout
                 xmlns:android="http://schemas.android.com/apk/res/android"
                 android:orientation="vertical"

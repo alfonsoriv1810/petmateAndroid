@@ -20,4 +20,39 @@
         <item>Macho</item>
     </string-array>
 
+    <string name="compartir1">Encontre a </string>
+    <string name="compartir2">en Petmate </string>
+    <string name="textoCompartir">Escoge la aplicación con la que compartiras la mascota que encontraste</string>
+
+    <string name="contactoAgregado">Contacto agregado a contactos</string>
+
+    <string name="mascotaAgregada">Mascota agregada</string>
+
+    <string name="loginEditText">Falta un campo por llenar</string>
+
+    <string name="falloLogin">Ocurrio un error al loggearse</string>
+
+    <string name="botonAgregaMascotaString">Agregar mascota</string>
+
+    <string name="correoPlaceHolder">Correo ej:usuario@correo.com</string>
+
+    <string name="contrasenaPlaceHolder">Contraseña</string>
+
+    <string name="loginBotonString">Conectarse</string>
+
+    <string name="registrarBotonString">Registrarte</string>
+
+    <string name="nombrePlaceholderString">Nombre ej:Nombre</string>
+
+    <string name="telefonoPlaceHolderString">Telefono ej:81-10-29-92</string>
+
+    <string name="botonAceptarString">Aceptar</string>
+
+    <string name="botonCancelarString">Cancelar</string>
+
+    <string name="labelNoMascotas">No se encontraron mascotas</string>
+
+    <string name="botonAcercaDe">Acerca de.</string>
+
+    <string name="alumnosLabel">Alumnos</string>
 </resources>

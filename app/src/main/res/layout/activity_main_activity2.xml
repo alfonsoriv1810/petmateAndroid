@@ -13,14 +13,14 @@
         android:id="@+id/usuario"
         android:layout_width="match_parent"
         android:layout_height="55dp"
-        android:hint="Correo ej:usuario@correo.com" />
+        android:hint="@string/correoPlaceHolder" />
 
     <EditText
         android:id="@+id/contrasena"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:password="true"
-        android:hint="Contraseña" />
+        android:hint="@string/contrasenaPlaceHolder" />
 
     <Button
         android:id="@+id/login"
@@ -28,7 +28,7 @@
         android:layout_height="wrap_content"
         android:textColor="#FFFF"
         android:background="@drawable/btn_con_borde"
-        android:text="Login"
+        android:text="@string/loginBotonString"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp" />
 
@@ -38,7 +38,7 @@
         android:layout_height="wrap_content"
         android:textColor="#FFFF"
         android:background="@drawable/btn_con_borde"
-        android:text="Registrarte" />
+        android:text="@string/registrarBotonString" />
 
     <EditText
         android:layout_width="match_parent"
@@ -46,7 +46,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
         android:id="@+id/editTextNombreUsuarioRegistro"
-        android:hint="Nombre ej:Nombre"
+        android:hint="@string/nombrePlaceholderString"
         android:visibility="gone" />
 
     <EditText
@@ -55,7 +55,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
         android:id="@+id/editTextCorreoUsuarioRegistro"
-        android:hint="Correo ej:correo@correo.com"
+        android:hint="@string/correoPlaceHolder"
         android:visibility="gone" />
 
     <EditText
@@ -65,7 +65,7 @@
         android:layout_marginBottom="10dp"
         android:id="@+id/editTextContrasenaUsuarioRegistro"
         android:password="true"
-        android:hint="Contraseña"
+        android:hint="@string/contrasenaPlaceHolder"
         android:visibility="gone" />
 
     <EditText
@@ -74,7 +74,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
         android:id="@+id/editTextTelefonoUsuarioRegistro"
-        android:hint="Telefono ej:81-10-29-92"
+        android:hint="@string/telefonoPlaceHolderString"
         android:visibility="gone" />
 
     <Button
@@ -83,7 +83,7 @@
         android:layout_height="wrap_content"
         android:textColor="#FFFF"
         android:background="@drawable/btn_con_borde"
-        android:text="Aceptar"
+        android:text="@string/botonAceptarString"
         android:visibility="gone"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"/>
@@ -94,7 +94,7 @@
         android:layout_height="wrap_content"
         android:textColor="#FFFF"
         android:background="@drawable/btn_con_borde"
-        android:text="Cancelar"
+        android:text="@string/botonCancelarString"
         android:visibility="gone"
         android:layout_marginBottom="10dp"/>
 

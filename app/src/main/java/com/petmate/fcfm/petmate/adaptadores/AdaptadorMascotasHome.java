@@ -61,10 +61,10 @@ public class AdaptadorMascotasHome extends BaseAdapter {
         Boolean sexoMascota = _lista.get(position).getSexoMascota();
 
         if (sexoMascota == true){
-            textViewSexoMascota.setText("Masculino");
+            textViewSexoMascota.setText(R.string.sexoMachoMascotaDetalle);
             imagenSexoMascota.setImageResource(R.drawable.icn_sexo_masculino_mascota);
         } else {
-            textViewSexoMascota.setText("Femenino");
+            textViewSexoMascota.setText(R.string.sexoHembraMascotaDetalle);
             imagenSexoMascota.setImageResource(R.drawable.icn_sexo_femenino_mascota);
         }
 

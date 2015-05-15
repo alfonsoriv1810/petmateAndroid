@@ -10,6 +10,7 @@
         android:gravity="center"
         android:text="Configuración"
         android:layout_margin="5dp"
+        android:visibility="gone"
         android:background="@drawable/btn_con_borde"
         android:textColor="#ffffffff" />
     <Button
@@ -17,11 +18,12 @@
         android:layout_height="wrap_content"
         android:id="@+id/botonAcercaDe"
         android:gravity="center"
-        android:text="Acerca de."
+        android:text="@string/botonAcercaDe"
         android:layout_margin="5dp"
         android:textColor="#ffffffff"
         android:background="@drawable/btn_con_borde" />
     <TextView
+        android:id="@+id/textViewFCFM"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:text="FCFM UANL, Sán Nicolas de los Garza"
@@ -29,4 +31,45 @@
         android:paddingBottom="5dp"
         android:textStyle="bold"
         android:textSize="15dp" />
+
+    <LinearLayout
+        android:id="@+id/linearLayoutAcercaDe"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#78000000"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:background="#FFFF"
+            android:layout_margin="15dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/alumnosLabel"
+                android:textStyle="bold"
+                android:textSize="35dp"
+                android:gravity="center|center_vertical|center_horizontal"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Ana Lilia Gutierrez Aguilar"
+                android:textSize="25dp"
+                android:gravity="center|center_vertical|center_horizontal"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Francisco Alfonso Rivera Cortés"
+                android:textSize="25dp"
+                android:gravity="center|center_vertical|center_horizontal"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
 </LinearLayout>
